@@ -95,7 +95,7 @@ The previous calculus becomes
 Denote stem:[f: K \mapsto \mathbb{R}] and stem:[\hat{f}: \hat{K} \mapsto \mathbb{R}] such that stem:[\hat{f} = f \circ F] and 
 ]\mathbf{F}: K \mapsto \mathbb{R}^d] and stem:[\mathbf{\hat{F}}: \hat{K} \mapsto \mathbb{R}^d] such that stem:[\hat{\mathbf{F}} = \mathbf{F} \circ \chi^e].
 
-Moreover denote  stem:[\mathbf{n}] the local outward normal to stem:[\Omega] and stem:[\mathbf{n}] the local outward normal to stem:[\hat{\Omega}].
+Moreover denote  stem:[\mathbf{n}] the local outward normal to stem:[\Omega] and stem:[\mathbf{n}^{st}] the local outward normal to stem:[\hat{\Omega}].
   
 we have the following relations
 
@@ -110,4 +110,32 @@ we have the following relations
 
 \int_{\partial K}\ \mathbf{F}( x )\ \cdot\ \mathbf{n}(x) dx & = \int_{\partial \hat{K}} \mathbf{\hat{F}}( \xi )\  \cdot \Big(B^e(\xi)^T \ \mathbf{n^{\text{st}}}(\xi) \Big) \ J^e( \xi )\ d \xi
 \end{aligned}
+++++
+
+=== Particular case of change in cylindric coodinates
+
+For the changement of cylindric coordinates, the formula become :
+[stem]
+++++
+\begin{eqnarray*}
+    \int_{K} \ f(x,y,z) \ dxdydz\ &=& \int_{\hat{K}} \hat{f}(r,\theta,z) r \ dr d\theta dz \\
+    \int_{K}\ \nabla f(x,y,z) \ dxdydz\ &=& \ \int_{\hat{K}} \Big(\nabla^{\text{st}} \hat{f}(r,\theta,z) \begin{pmatrix} cos \theta & r sin \theta & 0 \\ -sin \theta & r cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \Big) r \ dr d\theta dz \\
+    \int_{\partial K}\ f(x,y,z)\ dxdydz &=& \int_{\partial \hat{K}} \hat{f}(r, \theta, z)\  \| \begin{pmatrix} cos\theta & -sin\theta & 0 \\ r sin\theta & r cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \ \mathbf{n^{\text{st}}}(\xi) \|\ r \ dr d\theta dz \\
+    \int_{\partial K}\ \mathbf{F}(x,y,z)\ \cdot\ \mathbf{n}(x,y,z) dxdydz &=& \int_{\partial \hat{K}} \mathbf{\hat{F}}(r, \theta, z)\  \cdot \Big( \begin{pmatrix} cos\theta & -sin\theta & 0 \\ r sin\theta & r cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \ \mathbf{n^{\text{st}}}(r,\theta,z) \Big) \ r \ dr d\theta dz \\
+    \int_{\partial K}\ \nabla f(x,y,z) \cdot \mathbf{n}(x,y,z) dxdydz &=& \int_{\partial \hat{K}} \Big( \nabla^{st} \hat{f}(r,\theta,z) \begin{pmatrix} cos \theta & r sin \theta & 0 \\ -sin \theta & r cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \Big) \cdot \Big( \begin{pmatrix} cos\theta & -sin\theta & 0 \\ r sin\theta & r cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix} \mathbf{n}^{st}(r,\theta,z) \Big) r \ drd\theta dz
+\end{eqnarray*}
+++++
+
+=== Particular case of axisymmetric
+
+A problem is said to be axisymmetric when the variables are constant around an axis (stem:[\hat{f}(r,\theta,z) = \hat{f}(r,z)]). The formula become :
+
+[stem]
+++++
+\begin{eqnarray*}
+    \int_{K} \ f(x,y,z) \ dxdydz\ &=& 2\pi \int_{\hat{K}} \hat{f}(r,z) r \ dr dz \\
+    \int_{K}\ \nabla f(x,y,z) \ dxdydz\ &=& \ 2\pi \int_{\hat{K}} \frac{\partial \hat{f}(r,z)}{\partial z} r \ dr dz \\
+    \int_{\partial K}\ f(x,y,z)\ dxdydz &=& 2\pi \int_{\partial \hat{K}} \hat{f}(r, z)\   | \mathbf{n^{\text{st}}}(r,z)_z | \ r \ dr dz \\
+    \int_{\partial K}\ \mathbf{F}(x,y,z)\ \cdot\ \mathbf{n}(x,y,z) dxdydz &=& 2\pi \int_{\partial \hat{K}} \mathbf{\hat{F}}(r, z)_z \  \cdot \mathbf{n^{\text{st}}}(r,\theta,z)_z \ r \ dr dz \\
+\end{eqnarray*}
 ++++
